@@ -26,9 +26,10 @@ public class AliPayTask extends PayTask {
 		this.mContext = context;
 	}
 
-	public AliPayTask(Activity context, JPay.JPayListener listener) {
+	public AliPayTask(Activity context,String type,JPay.JPayListener listener) {
 		this.mContext = context;
 		this.mJPayListener =listener;
+		this.serverType = type;
 	}
 	
 //	@Override
@@ -54,26 +55,23 @@ public class AliPayTask extends PayTask {
 		try {
 			if (result!=null){
 			//	AlipayBean resultBean = JSONObject.parseObject(result,new TypeReference<AlipayBean>(){});
-				JSONObject jsonObject=new JSONObject(result);
-				int code  = jsonObject.getInt("code");
-				if(code==0){
-					String resultData = jsonObject.getString("data");
-					System.out.println("orderInfo="+resultData);
-					///Toast.makeText(mContext, "正在调起支付", Toast.LENGTH_SHORT).show();
-					PayUtils.getIntance(mContext).startAliPay(resultData,mJPayListener);
+				if(serverType.equals(API_TYPE_PHP)){
+					System.out.println("PHP后台返回的数据orderInfo="+result);
+					PayUtils.getIntance(mContext).startAliPay(result,mJPayListener);
 				}else{
-					Toast.makeText(mContext, "错误"+jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+					JSONObject jsonObject=new JSONObject(result);
+					int code  = jsonObject.getInt("code");
+					if(code==0){
+						String resultData = jsonObject.getString("data");
+						System.out.println("orderInfo="+resultData);
+						///Toast.makeText(mContext, "正在调起支付", Toast.LENGTH_SHORT).show();
+						PayUtils.getIntance(mContext).startAliPay(resultData,mJPayListener);
+					}else{
+						Toast.makeText(mContext, "错误"+jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+					}
+
 				}
 
-
-//				if(success){
-//					String orderInfo = message.getString("body");
-//
-//				}else{
-//
-//		        	Log.d("PAY_GET", "返回错误"+message);
-//		        	Toast.makeText(mContext, "返回错误:"+message, Toast.LENGTH_SHORT).show();
-//				}
 			}else {
 
 				System.out.println("get  AliPay exception, is null");

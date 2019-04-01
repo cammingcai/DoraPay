@@ -20,7 +20,7 @@ public class WeChatPayStrategy implements PayStrategy {
 //    }
 //
     @Override
-    public void pay(Activity context, String data) {
+    public void pay(Activity context,String type, String data) {
 //        Order order  = new Order();
 //        order.setBody(data.getTitle());
 //        order.setTotal_fee(data.getPrice());
@@ -28,7 +28,7 @@ public class WeChatPayStrategy implements PayStrategy {
 //        order.setSubjectTypeId(data.getSubjectTypeId());
 //        order.setActualPayPrice(data.getPrice());
         Log.i("WeChatPayStrategy","jPayListener="+jPayListener);
-        new WXPayTask(context,jPayListener).execute(data);
+        new WXPayTask(context,type,jPayListener).execute(data);
     }
     @Override
     public void setPayListener(JPay.JPayListener payListener) {

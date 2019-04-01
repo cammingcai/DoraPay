@@ -68,17 +68,28 @@ public class PayUnityUtils {
         return false;
     }
 
+//    /**
+//     * 这个是提供给unity的
+//     * @param payType 支付类型 （ALI、WECHAT）
+//     * */
+//    public void payDoraVip(String payType,String httpResult){
+//        PayUtils.getIntance(getActivity()).payDoraVip(payType,httpResult,payListener);
+//    }
+
     /**
      * 这个是提供给unity的
+     * @param serverType 后台接口类型分别是：PHP、JAVA
+     * @param payType    支付类型分别是：ALI、WECHAT
+     * @param httpResult 后台返回的json结果
      * */
-    public void payDoraVip(String payType,String httpResult){
-        PayUtils.getIntance(getActivity()).payDoraVip(payType,httpResult,payListener);
+    public void payDoraVip(String serverType,String payType,String httpResult){
+        PayUtils.getIntance(getActivity()).payDoraVip(serverType,payType,httpResult,payListener);
     }
     /**
      * 这个是我自己测试用的
      * */
     public void payDoraVip(Activity context,String payType,String httpResult){
-        PayUtils.getIntance(context).payDoraVip(payType,httpResult,payListener);
+     //   PayUtils.getIntance(context).payDoraVip(payType,httpResult,payListener);
     }
 
     JPay.JPayListener payListener = new JPay.JPayListener() {

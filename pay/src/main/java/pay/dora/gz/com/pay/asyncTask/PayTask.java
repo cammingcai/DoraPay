@@ -17,6 +17,9 @@ public abstract class PayTask extends AsyncTask<Object, Integer, String> {
 
     protected boolean isPay = false;
     protected JPay.JPayListener mJPayListener;
+    protected String serverType;
+    public static final String API_TYPE_PHP = "PHP";
+    public static final String API_TYPE_JAVA = "JAVA";
 
     @Override
     protected void onPreExecute() {

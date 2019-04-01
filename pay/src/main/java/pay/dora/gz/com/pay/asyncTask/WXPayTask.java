@@ -28,9 +28,10 @@ public class WXPayTask extends PayTask {
 	public WXPayTask(Activity context) {
 		this.mContext = context;
 	}
-	public WXPayTask(Activity context, JPay.JPayListener listener) {
+	public WXPayTask(Activity context,String type, JPay.JPayListener listener) {
 		this.mContext = context;
 		this.mJPayListener =listener;
+		this.serverType = type;
 	}
 	@Override
 	protected void onPreExecute() {
@@ -54,35 +55,53 @@ public class WXPayTask extends PayTask {
 		Log.i("WXPayTask","result="+result);
 		try {
 			JSONObject jsonObject=new JSONObject(result);
-			int code  = jsonObject.getInt("code");
-			if(code==0){
-				JSONObject data = jsonObject.getJSONObject("data");
-				WechatPayBean payBean = new WechatPayBean();
-				payBean.setAppid(data.getString("appid"));
-				payBean.setMch_id(data.getString("mch_id"));
-				payBean.setNonce_str(data.getString("nonce_str"));
-				payBean.setPrepay_id(data.getString("prepay_id"));
-				payBean.setSign(data.getString("sign"));
-				payBean.setSignB(data.getString("signB"));
-				payBean.setTimestamp(data.getString("timestamp"));
-				if (payBean!=null) {
-					//System.out.println("TestPayPrepay result>"+result);
-					Log.i("WXPayTask","mJPayListener="+mJPayListener);
-					PayUtils.getIntance(mContext).startWXPay(payBean,mJPayListener);
-//				//微信支付  签名  应用id 订单号 时间 商户号
-				}else {
-					//System.out.println("get  prepayid exception, is null");
-					Toast.makeText(mContext,"没有该订单",Toast.LENGTH_SHORT).show();
-				}
+
+			if(serverType.equals(API_TYPE_PHP)){
+				startWXPay(jsonObject.getString("appid"),jsonObject.getString("partnerid"),
+						jsonObject.getString("noncestr"),jsonObject.getString("prepayid"),
+						jsonObject.getString("sign"),jsonObject.getString("sign"),
+						jsonObject.getString("timestamp"));
 			}else{
-				Toast.makeText(mContext,"支付出错！",Toast.LENGTH_SHORT).show();
+				int code  = jsonObject.getInt("code");
+				if(code==0){
+					JSONObject data = jsonObject.getJSONObject("data");
+
+					startWXPay(data.getString("appid"),data.getString("mch_id"),
+							data.getString("nonce_str"),data.getString("prepay_id"),
+							data.getString("sign"),data.getString("signB"),
+							data.getString("timestamp"));
+
+				}else{
+					Toast.makeText(mContext,"支付出错！",Toast.LENGTH_SHORT).show();
+				}
 			}
+
 
 		} catch (Exception e) {
 			Log.e("PAY_GET", "异常："+e.getMessage());
 			Toast.makeText(mContext,"异常："+e.getMessage(),Toast.LENGTH_SHORT).show();
         }
 		super.onPostExecute(result);
+	}
+
+	private void startWXPay(String appid, String mch_id, String nonce_str, String prepay_id, String sign, String signB, String timestamp) {
+		WechatPayBean payBean = new WechatPayBean();
+		payBean.setAppid(appid);
+		payBean.setMch_id(mch_id);
+		payBean.setNonce_str(nonce_str);
+		payBean.setPrepay_id(prepay_id);
+		payBean.setSign(sign);
+		payBean.setSignB(signB);
+		payBean.setTimestamp(timestamp);
+		if (payBean!=null) {
+			//System.out.println("TestPayPrepay result>"+result);
+			Log.i("WXPayTask","mJPayListener="+mJPayListener);
+			PayUtils.getIntance(mContext).startWXPay(payBean,mJPayListener);
+//				//微信支付  签名  应用id 订单号 时间 商户号
+		}else {
+			//System.out.println("get  prepayid exception, is null");
+			Toast.makeText(mContext,"没有该订单",Toast.LENGTH_SHORT).show();
+		}
 	}
 
 }

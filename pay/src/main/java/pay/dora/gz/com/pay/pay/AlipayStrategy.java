@@ -19,12 +19,12 @@ public class AlipayStrategy implements PayStrategy {
 //        this.jPayListener = listener;
 //    }
     @Override
-    public void pay(Activity context,  String data) {
+    public void pay(Activity context,String type,  String data) {
 //        Order order  = new Order();
 //        order.setSubject(data.getTitle());
 //        order.setTotal_amount(data.getPrice()+"");
         Log.i("AlipayStrategy","jPayListener="+jPayListener);
-        new AliPayTask(context,jPayListener).execute(data);
+        new AliPayTask(context,type,jPayListener).execute(data);
     }
 
     @Override
