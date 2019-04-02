@@ -88,8 +88,8 @@ public class PayUnityUtils {
     /**
      * 这个是我自己测试用的
      * */
-    public void payDoraVip(Activity context,String payType,String httpResult){
-     //   PayUtils.getIntance(context).payDoraVip(payType,httpResult,payListener);
+    public void payDoraVip(Activity context,String serverType,String payType,String httpResult){
+        PayUtils.getIntance(context).payDoraVip(serverType,payType,httpResult,payListener);
     }
 
     JPay.JPayListener payListener = new JPay.JPayListener() {
