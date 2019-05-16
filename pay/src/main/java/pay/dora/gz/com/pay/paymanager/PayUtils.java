@@ -52,7 +52,6 @@ public class PayUtils {
      * @param payBean
      */
     public void startWXPay(WechatPayBean payBean, JPay.JPayListener listener) {
-
         JPay.getIntance(mContext).toWxPay(payBean,listener);
 
     }

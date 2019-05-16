@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "pay.dora.gz.com.dorapay"
+        applicationId "com.gz.aidea"
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
@@ -15,6 +15,36 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+
+    signingConfigs {
+
+
+        def password = "aidea123"
+        def alias = "aidea"
+        def filePath = "aidea.jks"  //签名文件路径
+
+        debug {
+            keyAlias alias
+            keyPassword password
+            storeFile file(filePath)
+            storePassword(password)
+        }
+        release {
+            keyAlias alias
+            keyPassword password
+            storeFile file(filePath)
+            storePassword(password)
+        }
+        //    MD5: 72747D6000FB67F4159A1C85854B0446
+        //72747d6000fb67f4159a1c85854b0446
+//            SHA1: 42:50:00:A8:11:B0:A3:22:2F:0C:41:97:E5:26:6A:85:7F:A1:9B:5A
+//            SHA256: E8:3B:59:7C:2B:6B:04:C8:CF:48:6D:75:49:64:B4:13:E9:B7:87:E3:9E:
+//                    9B:91:4C:49:D6:75:A9:D6:F1:77:BB
+//            签名算法名称: SHA256withRSA
+
+
     }
 }
 

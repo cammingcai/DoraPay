@@ -25,6 +25,17 @@ import pay.dora.gz.com.pay.entity.WechatPayBean;
 /**
  * 微信支付
  * Created by camming on 2016/11/20.
+ *
+ *
+ * 注意
+ * 微信的APPID 和签名信息及报名和微信开放平台填写的要一致
+ * 微信的APPID 和签名信息及报名和微信开放平台填写的要一致
+ * 微信的APPID 和签名信息及报名和微信开放平台填写的要一致
+ * 微信的APPID 和签名信息及报名和微信开放平台填写的要一致
+ * 微信的APPID 和签名信息及报名和微信开放平台填写的要一致
+ * 微信的APPID 和签名信息及报名和微信开放平台填写的要一致
+ *
+ *
  */
 
 public class WeiXinPay {
@@ -65,7 +76,6 @@ public class WeiXinPay {
     public void registerApp(String appId){
 
         boolean bool = mIWXAPI.registerApp(appId);
-        Log.i(TAG,"bool="+bool);
     }
 
     /**
@@ -151,7 +161,7 @@ public class WeiXinPay {
             mJPayListener.onPaySuccess();
         } else if(error_code == -1) {
             //支付异常
-            mJPayListener.onPayError(PAY_ERROR,baseResp.errStr);
+            mJPayListener.onPayError(PAY_ERROR,"errStr="+baseResp.errStr);
         } else if(error_code == -2) {
             //支付取消
             mJPayListener.onPayCancel();

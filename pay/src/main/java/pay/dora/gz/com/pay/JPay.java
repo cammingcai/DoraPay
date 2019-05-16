@@ -136,14 +136,7 @@ public class JPay {
         Log.i(TAG,"nonceStr="+nonceStr);
         Log.i(TAG,"timeStamp="+timeStamp);
         Log.i(TAG,"sign="+sign);
-        if (TextUtils.isEmpty(appid) || TextUtils.isEmpty(partnerId)
-                || TextUtils.isEmpty(prepayId) || TextUtils.isEmpty(nonceStr)
-                || TextUtils.isEmpty(sign) || TextUtils.isEmpty(timeStamp)) {
-            if (listener != null) {
-                listener.onPayError(WeiXinPay.PAY_PARAMETERS_ERROE, "参数异常");
-            }
-            return;
-        }
+
         WeiXinPay.getInstance(mContext).startWXPay(bean, listener);
     }
 

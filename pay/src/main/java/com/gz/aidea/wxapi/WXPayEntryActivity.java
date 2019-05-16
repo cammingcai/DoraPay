@@ -38,9 +38,6 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
         if (!WeiXinPay.getInstance(this).getWXApi().handleIntent(intent, this)) {
             finish();
         }
-//        if(WeiXinPay.getInstance(this) != null) {
-//            WeiXinPay.getInstance(this).getWXApi().handleIntent(intent, this);
-//        }
     }
     @Override
     public void onReq(BaseReq baseReq) {
