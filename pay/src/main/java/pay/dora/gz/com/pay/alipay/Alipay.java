@@ -101,7 +101,8 @@ public class Alipay {
         public void handleMessage(Message msg) {
             PayResult payResult = new PayResult((Map<String, String>) msg.obj);
 
-            Log.e("aliPay call ",payResult.toString());
+            Log.e("payResult= ",payResult.toString());
+            System.out.print("payResult= "+payResult.toString());
 
             String resultStatus = payResult.getResultStatus();
             if (mJPayListener ==null){
