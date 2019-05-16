@@ -13,6 +13,9 @@ import pay.dora.gz.com.pay.paymanager.PayUtils;
 /**
  * Created by camming on 2019\2\18 0018.
  * code is data  data is code
+ *
+ *
+ * 提供给unity3D的原生支付请求的交互类
  */
 
 public class PayUnityUtils {

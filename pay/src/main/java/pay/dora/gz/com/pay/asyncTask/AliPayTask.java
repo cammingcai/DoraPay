@@ -4,20 +4,19 @@ import android.app.Activity;
 import android.util.Log;
 import android.widget.Toast;
 
-//import com.alibaba.fastjson.JSONObject;
-//import com.alibaba.fastjson.TypeReference;
-
 import org.json.JSONObject;
 
 import pay.dora.gz.com.pay.JPay;
-import pay.dora.gz.com.pay.entity.AlipayBean;
 import pay.dora.gz.com.pay.paymanager.PayUtils;
+
+//import com.alibaba.fastjson.JSONObject;
+//import com.alibaba.fastjson.TypeReference;
 
 
 /**
  *
  * create by camming 2019/02/14
- * 情人节
+ * 情人节也要写代码
  * 支付宝支付
  * */
 public class AliPayTask extends PayTask {

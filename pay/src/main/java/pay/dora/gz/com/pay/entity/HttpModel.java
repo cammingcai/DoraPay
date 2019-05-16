@@ -1,7 +1,7 @@
 package pay.dora.gz.com.pay.entity;
 
 /**
- * Created by camming on 2018\12\26 0026.
+ * Created by camming on 2019\01\26 0026.
  * code is data  data is code
  * 网络请求回调父类，必有参数success message code
  */

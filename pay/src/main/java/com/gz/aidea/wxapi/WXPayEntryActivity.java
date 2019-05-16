@@ -18,6 +18,8 @@ import pay.dora.gz.com.pay.weixin.WeiXinPay;
  *
  * 微信支付
  *
+ * 此类需要放在工程报名的wxap目录下
+ *
  */
 
 public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {

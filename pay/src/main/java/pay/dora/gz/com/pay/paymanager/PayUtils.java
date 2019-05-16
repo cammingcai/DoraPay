@@ -12,7 +12,7 @@ import pay.dora.gz.com.pay.pay.WeChatPayStrategy;
 
 /***
  *
- * Create by camming 2019/0214
+ * Create by camming 2019/02/14
  * 支付工具类
  *
  * 获取预付订单信息及调起
