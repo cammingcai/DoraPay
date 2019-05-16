@@ -107,7 +107,13 @@ public class QQPay {
         api.timeStamp = System.currentTimeMillis() / 1000;
         api.bargainorId = payBean.getMch_id();
 
+        //直接使用后台返回的签名数据  如果使用服务端的签名，把
+        //下面的signApi()方法注释掉
+//        api.sig = "";
+//        api.sigType = "HMAC-SHA1";
+
         try {
+            //为了测试，这里直接签名，此步骤放在服务端
             signApi(api);
         } catch (Exception e) {
             e.printStackTrace();
