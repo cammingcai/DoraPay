@@ -7,5 +7,5 @@ package pay.dora.gz.com.pay.pay;
 
 public enum PayType {
 
-    WECHAT_PAY,ALI_PAY
+    WECHAT_PAY,ALI_PAY,QQPAY
 }

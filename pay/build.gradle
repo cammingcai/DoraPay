@@ -34,6 +34,6 @@ dependencies {
     // compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     // classpath  'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     //json解析
-//    compile 'com.alibaba:fastjson:1.1.57.android'
-
+        compile 'com.alibaba:fastjson:1.1.57.android'
+    implementation files('libs/mqqopenpay.jar')
 }

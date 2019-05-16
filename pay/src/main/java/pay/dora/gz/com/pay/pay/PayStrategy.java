@@ -13,7 +13,8 @@ import pay.dora.gz.com.pay.JPay;
  */
 
 public interface PayStrategy {
-
     void pay(Activity context,String serverType, String data);
     void setPayListener(JPay.JPayListener payListener);
+
+
 }

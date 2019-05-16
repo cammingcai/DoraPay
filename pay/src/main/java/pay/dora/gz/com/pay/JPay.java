@@ -3,12 +3,15 @@ package pay.dora.gz.com.pay;
 import android.app.Activity;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import pay.dora.gz.com.pay.alipay.Alipay;
 import pay.dora.gz.com.pay.entity.WechatPayBean;
+import pay.dora.gz.com.pay.pay.PayType;
+import pay.dora.gz.com.pay.qq.QQPay;
 import pay.dora.gz.com.pay.unionpay.UPPay;
 import pay.dora.gz.com.pay.weixin.WeiXinPay;
 
@@ -51,7 +54,7 @@ public class JPay {
     }
 
     public enum PayMode {
-        WXPAY, ALIPAY, UUPAY
+        WXPAY, ALIPAY, UUPAY,QQPAY
     }
 
     /**
@@ -60,15 +63,45 @@ public class JPay {
      * 根据类型
      * */
     public void toPay(PayMode payMode, String payParameters, JPayListener listener) {
-        if (payMode.name().equalsIgnoreCase(PayMode.WXPAY.name())) {
-            toWxPay(payParameters, listener);
-        } else if (payMode.name().equalsIgnoreCase(PayMode.ALIPAY.name())) {
-            toAliPay(payParameters, listener);
-        } else if (payMode.name().equalsIgnoreCase(PayMode.UUPAY.name())) {
-            toUUPay(payParameters,listener);
+        switch (payMode){
+            case WXPAY:
+                toWxPay(payParameters, listener);
+                break;
+            case ALIPAY:
+                toAliPay(payParameters, listener);
+                break;
+            case QQPAY:
+                toQQPay(payParameters, listener);
+                break;
+            case UUPAY:
+                toUUPay(payParameters,listener);
+                break;
+            default:
+                Toast.makeText(mContext,"支付类型有误！",Toast.LENGTH_SHORT).show();
         }
+//
+//        if (payMode.name().equalsIgnoreCase(PayMode.WXPAY.name())) {
+//            toWxPay(payParameters, listener);
+//        } else if (payMode.name().equalsIgnoreCase(PayMode.ALIPAY.name())) {
+//            toAliPay(payParameters, listener);
+//        } else if (payMode.name().equalsIgnoreCase(PayMode.UUPAY.name())) {
+//            toUUPay(payParameters,listener);
+//        }
     }
-
+    /***
+     *
+     * 根据支付类型调起对应支付
+     * 调起支付
+     */
+    public void startPay(PayMode payMode, final String orderInfo) {
+        toPay(payMode, orderInfo, payListener);
+    }
+    /**
+     * QQ支付
+     * */
+    private void toQQPay(String result, JPayListener listener) {
+        QQPay.getInstance(mContext).startQQPay(result,listener);
+    }
 
     /**
      * 微信支付
@@ -107,21 +140,6 @@ public class JPay {
     /**
      * 微信支付
      * */
-   /* public void toWxPay(String appId, String partnerId, String prepayId,
-                        String nonceStr, String timeStamp, String sign, JPayListener listener) {
-        if (TextUtils.isEmpty(appId) || TextUtils.isEmpty(partnerId)
-                || TextUtils.isEmpty(prepayId) || TextUtils.isEmpty(nonceStr)
-                || TextUtils.isEmpty(timeStamp) || TextUtils.isEmpty(sign)) {
-            if (listener != null) {
-                listener.onPayError(WeiXinPay.PAY_PARAMETERS_ERROE, "参数异常");
-            }
-            return;
-        }
-        WeiXinPay.getInstance(mContext).startWXPay(appId, partnerId, prepayId, nonceStr, timeStamp, sign, listener);
-    }*/
-    /**
-     * 微信支付
-     * */
     public void toWxPay(WechatPayBean bean, JPayListener listener) {
        // Log.i(TAG,"bean="+ com.alibaba.fastjson.JSONObject.toJSONString(bean));
         String appid = bean.getAppid();
@@ -139,6 +157,8 @@ public class JPay {
 
         WeiXinPay.getInstance(mContext).startWXPay(bean, listener);
     }
+
+
 
 
 
@@ -195,4 +215,27 @@ public class JPay {
         }
         UPPay.getInstance(mContext).startUPPay(mode, tn, listener);
     }
+
+    JPay.JPayListener payListener = new JPay.JPayListener() {
+        @Override
+        public void onPaySuccess() {
+            //  如果支付成功则去后台查询支付结果再展示用户实际支付结果。
+            // 注意一定不能以客户端返回作为用户支付的结果，
+            // 应以服务器端的接收的支付通知或查询API返回的结果为准。
+        }
+
+        @Override
+        public void onPayError(int error_code, String message) {
+
+        }
+
+        @Override
+        public void onPayCancel() {
+        }
+
+        @Override
+        public void onUUPay(String dataOrg, String sign, String mode) {
+
+        }
+    };
 }

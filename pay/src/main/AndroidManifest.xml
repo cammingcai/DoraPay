@@ -8,5 +8,17 @@
             android:name="com.gz.aidea.wxapi.WXPayEntryActivity"
             android:exported="true"
             android:launchMode="singleTop"/>
+
+        <activity
+            android:name="com.gz.aidea.wxapi.QQCallbackActivity"
+            android:launchMode="singleTop"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="qwallet101538445"/>
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

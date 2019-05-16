@@ -13,8 +13,8 @@ import pay.dora.gz.com.pay.asyncTask.WXPayTask;
  */
 
 public class WeChatPayStrategy implements PayStrategy {
-
     JPay.JPayListener jPayListener;
+
 //    WeChatPayStrategy(JPay.JPayListener listener){
 //        this.jPayListener = listener;
 //    }

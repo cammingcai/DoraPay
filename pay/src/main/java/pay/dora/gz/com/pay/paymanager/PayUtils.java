@@ -7,6 +7,7 @@ import pay.dora.gz.com.pay.JPay;
 import pay.dora.gz.com.pay.entity.WechatPayBean;
 import pay.dora.gz.com.pay.pay.AlipayStrategy;
 import pay.dora.gz.com.pay.pay.PayStrategy;
+import pay.dora.gz.com.pay.pay.QQPayStrategy;
 import pay.dora.gz.com.pay.pay.WeChatPayStrategy;
 
 
@@ -127,6 +128,9 @@ public class PayUtils {
                 break;
             case "WECHAT":
                 strategy = new WeChatPayStrategy();
+                break;
+            case "QQ":
+                strategy = new QQPayStrategy();
                 break;
             default:
                 Toast.makeText(mContext,"支付类型有误！",Toast.LENGTH_SHORT).show();

@@ -45,16 +45,21 @@ public class MainActivity extends AppCompatActivity {
 //                * 微信的APPID 和签名信息及报名和微信开放平台填写的要一致
 //                * 微信的APPID 和签名信息及报名和微信开放平台填写的要一致
 //                * 微信的APPID 和签名信息及报名和微信开放平台填写的要一致
-        pay.payDoraVip(this,"PHP","WECHAT",
-                "{\n" +
-                        "  \"appid\": \"wxca304224e344cf01\",\n" +
-                        "  \"partnerid\": \"1526564001\",\n" +
-                        "  \"prepayid\": \"wx161606220306711aa5947e3d3745941868\",\n" +
-                        "  \"timestamp\": \"1557993983\",\n" +
-                        "  \"noncestr\": \"g9M7Gg90egsHEc2u\",\n" +
-                        "  \"package\": \"Sign=WXPay\",\n" +
-                        "  \"sign\": \"3B6582FA181B1319051454BC044815C6\"\n" +
-                        "}");
+//        pay.payDoraVip(this,"PHP","WECHAT",
+//                "{\n" +
+//                        "  \"appid\": \"wxca304224e344cf01\",\n" +
+//                        "  \"partnerid\": \"1526564001\",\n" +
+//                        "  \"prepayid\": \"wx161606220306711aa5947e3d3745941868\",\n" +
+//                        "  \"timestamp\": \"1557993983\",\n" +
+//                        "  \"noncestr\": \"g9M7Gg90egsHEc2u\",\n" +
+//                        "  \"package\": \"Sign=WXPay\",\n" +
+//                        "  \"sign\": \"3B6582FA181B1319051454BC044815C6\"\n" +
+//                        "}");
 
+        //{"appid":"101538445","mch_id":"1526262271","nonce_str":"58d76a4cc35d4b3aa5229b407a55b4af","prepay_id":"6M620875063a96c8c1a02c3b1920e6c4","result_code":"SUCCESS","retcode":"0","retmsg":"ok","return_code":"SUCCESS","return_msg":"SUCCESS","sign":"638E98F20FD0D389E05BDAA1C4B13F7F","trade_type":"APP"}
+
+
+        pay.payDoraVip(this,"PHP","QQ",
+                "{\"appid\":\"101538445\",\"mch_id\":\"1526262271\",\"nonce_str\":\"58d76a4cc35d4b3aa5229b407a55b4af\",\"prepay_id\":\"6M620875063a96c8c1a02c3b1920e6c4\",\"result_code\":\"SUCCESS\",\"retcode\":\"0\",\"retmsg\":\"ok\",\"return_code\":\"SUCCESS\",\"return_msg\":\"SUCCESS\",\"sign\":\"638E98F20FD0D389E05BDAA1C4B13F7F\",\"trade_type\":\"APP\"}");
     }
 }
