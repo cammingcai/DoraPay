@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.util.Log;
 
 import pay.dora.gz.com.pay.JPay;
-import pay.dora.gz.com.pay.entity.VipData;
-import pay.dora.gz.com.pay.pay.PayType;
 
 
 /**

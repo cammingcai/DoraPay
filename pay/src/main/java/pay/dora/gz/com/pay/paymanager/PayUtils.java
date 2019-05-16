@@ -119,17 +119,17 @@ public class PayUtils {
      *
      * 开始购买VIP
      * */
-    public void payDoraVip(String serverType,String payType, String data, JPay.JPayListener listener) {
+    public void payDoraVip(String serverType,JPay.PayMode payType, String data, JPay.JPayListener listener) {
 
         PayStrategy strategy = null;
         switch (payType){
-            case "ALI":
+            case ALIPAY:
                 strategy = new AlipayStrategy();
                 break;
-            case "WECHAT":
+            case WXPAY:
                 strategy = new WeChatPayStrategy();
                 break;
-            case "QQ":
+            case QQPAY:
                 strategy = new QQPayStrategy();
                 break;
             default:

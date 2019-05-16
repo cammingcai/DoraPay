@@ -85,13 +85,18 @@ public class PayUnityUtils {
      * @param payType    支付类型分别是：ALI、WECHAT
      * @param httpResult 后台返回的json结果
      * */
-    public void payDoraVip(String serverType,String payType,String httpResult){
+    public void payDoraVip(String serverType, JPay.PayMode payType, String httpResult){
         PayUtils.getIntance(getActivity()).payDoraVip(serverType,payType,httpResult,payListener);
     }
     /**
      * 这个是我自己测试用的
+     *
+     * @param serverType 这个是因为之前做测试了java 和php两种后端的数据的返回  所以放了个服务端的类型选择
+     *
+     * @param payType 支付类型
+     * @param httpResult  预付订单 服务端返回的json 用了拉起支付
      * */
-    public void payDoraVip(Activity context,String serverType,String payType,String httpResult){
+    public void payDoraVip(Activity context, String serverType, JPay.PayMode payType, String httpResult){
         PayUtils.getIntance(context).payDoraVip(serverType,payType,httpResult,payListener);
     }
 

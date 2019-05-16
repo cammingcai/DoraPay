@@ -3,6 +3,7 @@ package com.gz.aidea;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import pay.dora.gz.com.pay.JPay;
 import pay.dora.gz.com.pay.PayUnityUtils;
 
 public class MainActivity extends AppCompatActivity {
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         //{"appid":"101538445","mch_id":"1526262271","nonce_str":"58d76a4cc35d4b3aa5229b407a55b4af","prepay_id":"6M620875063a96c8c1a02c3b1920e6c4","result_code":"SUCCESS","retcode":"0","retmsg":"ok","return_code":"SUCCESS","return_msg":"SUCCESS","sign":"638E98F20FD0D389E05BDAA1C4B13F7F","trade_type":"APP"}
 
 
-        pay.payDoraVip(this,"PHP","QQ",
+        pay.payDoraVip(this,"PHP", JPay.PayMode.QQPAY,
                 "{\"appid\":\"101538445\",\"mch_id\":\"1526262271\",\"nonce_str\":\"58d76a4cc35d4b3aa5229b407a55b4af\",\"prepay_id\":\"6M620875063a96c8c1a02c3b1920e6c4\",\"result_code\":\"SUCCESS\",\"retcode\":\"0\",\"retmsg\":\"ok\",\"return_code\":\"SUCCESS\",\"return_msg\":\"SUCCESS\",\"sign\":\"638E98F20FD0D389E05BDAA1C4B13F7F\",\"trade_type\":\"APP\"}");
     }
 }
