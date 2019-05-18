@@ -33,14 +33,14 @@ public class QQPay {
     @SuppressLint("StaticFieldLeak")
     private static QQPay mQQPay;
     private Context mContext;
-    private String callbackScheme = "qwallet101538445";
+
     private IOpenApi openApi;
 
     int paySerial = 1;
-
-    public static final String QQ_APP_ID = "101538445";
+    private String callbackScheme = "qwallet+商户id";
+    public static final String QQ_APP_ID = "+商户id";
     // 签名步骤建议不要在app上执行，要放在服务器上执行
-    public static final String APP_KEY = "8d99d8748a36d594c21c0b86c53fb7a5";
+    public static final String APP_KEY = "商户key";
 
     private JPay.JPayListener mJPayListener;
 
