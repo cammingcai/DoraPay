@@ -51,10 +51,6 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
         //4、支付结果回调 https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_5
 
         Log.e("WXPayEntryActivity", "baseResp=" + baseResp.toString());
-        Log.e("WXPayEntryActivity", "   baseResp.openId=" +    baseResp.openId);
-        Log.e("WXPayEntryActivity", "   baseResp.transaction=" +    baseResp.transaction);
-        Log.e("WXPayEntryActivity", "baseResp.getType()=" + baseResp.getType());
-        Log.e("WXPayEntryActivity", "baseResp.errStr=" + baseResp.errStr);
         if(baseResp.getType() == ConstantsAPI.COMMAND_PAY_BY_WX) {
             Log.e("WXPayEntryActivity", "errStr=" + baseResp.errStr);
             if(WeiXinPay.getInstance(this) != null) {

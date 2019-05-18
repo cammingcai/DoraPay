@@ -33,13 +33,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 orderWechat = "{\n" +
-                        "  \"appid\": \"wxca304224e344cf01\",\n" +
-                        "  \"partnerid\": \"1526564001\",\n" +
-                        "  \"prepayid\": \"wx161841565666311a08953e792375942151\",\n" +
-                        "  \"timestamp\": \"1558003316\",\n" +
-                        "  \"noncestr\": \"c8J2CnD7qDx15dus\",\n" +
+                        "  \"appid\": \"w4e344cf01\",\n" +
+                        "  \"partnerid\": \"154001\",\n" +
+                        "  \"prepayid\": \"wx1614e792375942151\",\n" +
+                        "  \"timestamp\": \"18003316\",\n" +
+                        "  \"noncestr\": \"c7qDx15dus\",\n" +
                         "  \"package\": \"Sign=WXPay\",\n" +
-                        "  \"sign\": \"34CBBA4190511EB8E919F80A0F59775F\"\n" +
+                        "  \"sign\": \"34C75F\"\n" +
                         "}";
                 if(TextUtils.isEmpty(orderWechat)){
                     Toast.makeText(MainActivity.this,"预付订单为空",Toast.LENGTH_SHORT).show();
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         aliBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                orderAli ="app_id=2019022263273481&format=JSON&charset=utf-8&sign_type=RSA2&version=1.0&notify_url=https%3A%2F%2Fdapi.tfwangs.com%2Fapi%2Falipay%2Fverify&timestamp=2019-05-16+18%3A26%3A25&biz_content=%7B%22out_trade_no%22%3A%2220190516182625272185%22%2C%22total_amount%22%3A%220.01%22%2C%22subject%22%3A%227%5Cu5929%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%7D&method=alipay.trade.app.pay&sign=Ip3vSdgDI1F39VSdmvuNwmu31Zmg90OAgMh29Bay461vvh4lUZvAsfxT7YOv6CXNqR%2Bh70YnNk03Vtkke3Hr5w5AdGYBujVxKUT2VyKUswBHzdF9TCHfF5zIA5NHZMvOAt%2FT1V0tkfeowoMrlqj0dsWGeq%2B2DYBuiky4dqCgC1Fua3wP%2FwaeKoeQNjk7O%2FBLN5H12F8B4srpTdFDhOSOpfU%2FS5YkN3fxFltU36vecnFiROPRgmRlbKqNjhfdKnp4GGZGkhLkewCoPZ%2BvPYUG%2Bzcq8iF9EvCw2guPxPrcWWnCQssnNDFtZlkOoMSUSJ569Xgs8oH82KPUjh8jaL3BxQ%3D%3D";
+                orderAli ="app_id=2019rsion=1.0&notifyi%2Falipay%2Fverify&t8%3A26%3A25&biz_content=%7B%22out_trade_no%22%3A%2220190516182625272185%22%2C%22total_amount%22%3A%220.01%22%2C%22subject%22%3A%227%5Cu5929%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%7D&method=alipay.trade.app.pay&sign=Ip3vSdgDI1F39VSdmvuNwmu31Zmg90OAgMh29Bay461vvh4lUZvAsfxT7YOv6CXNqR%2Bh70YnNk03Vtkke3Hr5w5AdGYBujVxKUT2VyKUswBHzdF9TCHfF5zIA5NHZMvOAt%2FT1V0tkfeowoMrlqj0dsWGeq%2B2DYBuiky4dqCgC1Fua3wP%2FwaeKoeQNjk7O%2FBLN5H12F8B4srpTdFDhOSOpfU%2FS5YkN3fxFltU36vecnFiROPRgmRlbKqNjhfdKnp4GGZGkhLkewCoPZ%2BvPYUG%2Bzcq8iF9EvCw2guPxPrcWWnCQssnNDFtZlkOoMSUSJ569Xgs8oH82KPUjh8jaL3BxQ%3D%3D";
                 if(TextUtils.isEmpty(orderAli)){
                     Toast.makeText(MainActivity.this,"预付订单为空",Toast.LENGTH_SHORT).show();
                     return;
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         qqBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                orderQQ = "{\"appid\":\"101538445\",\"mch_id\":\"1526262271\",\"nonce_str\":\"58d76a4cc35d4b3aa5229b407a55b4af\",\"prepay_id\":\"6M620875063a96c8c1a02c3b1920e6c4\",\"result_code\":\"SUCCESS\",\"retcode\":\"0\",\"retmsg\":\"ok\",\"return_code\":\"SUCCESS\",\"return_msg\":\"SUCCESS\",\"sign\":\"638E98F20FD0D389E05BDAA1C4B13F7F\",\"trade_type\":\"APP\"}";
+                orderQQ = "{\"appid\":\"105d4b3aa5229b407a55b4af\"2c3b1920e6c4\",\"result_code\":\"SUCCESS\",\"retcode\":\"0\",\"retmsg\":\"ok\",\"return_code\":\"SUCCESS\",\"return_msg\":\"SUCCESS\",\"sign\":\"638E98F20FD0D389E05BDAA1C4B13F7F\",\"trade_type\":\"APP\"}";
                 //{"appid":"101538445","mch_id":"1526262271","nonce_str":"58d76a4cc35d4b3aa5229b407a55b4af","prepay_id":"6M620875063a96c8c1a02c3b1920e6c4","result_code":"SUCCESS","retcode":"0","retmsg":"ok","return_code":"SUCCESS","return_msg":"SUCCESS","sign":"638E98F20FD0D389E05BDAA1C4B13F7F","trade_type":"APP"}
                 if(TextUtils.isEmpty(orderQQ)){
                     Toast.makeText(MainActivity.this,"预付订单为空",Toast.LENGTH_SHORT).show();
