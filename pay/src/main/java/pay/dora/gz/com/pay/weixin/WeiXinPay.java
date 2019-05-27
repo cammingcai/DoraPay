@@ -140,7 +140,7 @@ public class WeiXinPay {
 //            sb.append('&');
 //        }
 //        sb.append("key=");
-//        sb.append("CG2K4MBWc9emJpqyydowiRvmjesJ80xx");
+//        sb.append("CG");
 //        String appSign = MD5Utils.getMessageDigest(sb.toString().getBytes());
 //        return appSign;
 //    }
